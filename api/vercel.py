@@ -127,7 +127,7 @@ def handler(event, context):
         return {
             'statusCode': 200,
             'headers': {'Content-Type': 'text/plain'},
-            'body': 'OK'
+            'body': b'OK'
         }
 
     if path == '/api/market-data':
@@ -136,12 +136,12 @@ def handler(event, context):
             return {
                 'statusCode': 503,
                 'headers': {'Content-Type': 'application/json'},
-                'body': json.dumps({'error': 'Service temporarily unavailable'})
+                'body': json.dumps({'error': 'Service temporarily unavailable'}).encode('utf-8')
             }
         return {
             'statusCode': 200,
             'headers': {'Content-Type': 'application/json'},
-            'body': json.dumps(data)
+            'body': json.dumps(data).encode('utf-8')
         }
 
     if path.startswith('/api/market-data/'):
@@ -151,16 +151,16 @@ def handler(event, context):
             return {
                 'statusCode': 404,
                 'headers': {'Content-Type': 'application/json'},
-                'body': json.dumps({'error': f"Market '{market_name}' not found"})
+                'body': json.dumps({'error': f"Market '{market_name}' not found"}).encode('utf-8')
             }
         return {
             'statusCode': 200,
             'headers': {'Content-Type': 'application/json'},
-            'body': json.dumps(data)
+            'body': json.dumps(data).encode('utf-8')
         }
 
     return {
         'statusCode': 404,
         'headers': {'Content-Type': 'application/json'},
-        'body': json.dumps({'error': 'Not found'})
+        'body': json.dumps({'error': 'Not found'}).encode('utf-8')
     }
