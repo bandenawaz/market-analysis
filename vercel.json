@@ -4,7 +4,7 @@
     { "src": "dashboard/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/vercel.py" },
+    { "src": "/api/(.*)", "dest": "/api/vercel.py" },
     { "src": "/(.*)", "dest": "/dashboard/$1" }
   ]
 }
