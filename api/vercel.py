@@ -2,7 +2,7 @@ from .market_fetcher import get_market_data, get_specific_market_data
 import json
 import time
 
-def app(event, context):
+def handler(event, context):
     # Extract the path and method from the event
     path = event.get('path', '')
     method = event.get('httpMethod', '')
