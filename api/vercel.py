@@ -12,7 +12,7 @@ def app(event, context):
         return {
             'statusCode': 405,
             'headers': {'Content-Type': 'application/json'},
-            'body': json.dumps({'error': 'Method not allowed'}).encode('utf-8')
+            'body': json.dumps({'error': 'Method not allowed'})
         }
 
     # Health check
@@ -20,7 +20,7 @@ def app(event, context):
         return {
             'statusCode': 200,
             'headers': {'Content-Type': 'application/json'},
-            'body': json.dumps({'status': 'healthy', 'timestamp': time.time()}).encode('utf-8')
+            'body': json.dumps({'status': 'healthy', 'timestamp': time.time()})
         }
 
     # All market data
@@ -30,12 +30,12 @@ def app(event, context):
             return {
                 'statusCode': 503,
                 'headers': {'Content-Type': 'application/json'},
-                'body': json.dumps({'error': 'Service temporarily unavailable'}).encode('utf-8')
+                'body': json.dumps({'error': 'Service temporarily unavailable'})
             }
         return {
             'statusCode': 200,
             'headers': {'Content-Type': 'application/json'},
-            'body': json.dumps(data).encode('utf-8')
+            'body': json.dumps(data)
         }
 
     # Specific market data
@@ -46,17 +46,17 @@ def app(event, context):
             return {
                 'statusCode': 404,
                 'headers': {'Content-Type': 'application/json'},
-                'body': json.dumps({'error': f"Market '{market_name}' not found"}).encode('utf-8')
+                'body': json.dumps({'error': f"Market '{market_name}' not found"})
             }
         return {
             'statusCode': 200,
             'headers': {'Content-Type': 'application/json'},
-            'body': json.dumps(data).encode('utf-8')
+            'body': json.dumps(data)
         }
 
     # If we reach here, the path is not found
     return {
         'statusCode': 404,
         'headers': {'Content-Type': 'application/json'},
-        'body': json.dumps({'error': 'Not found'}).encode('utf-8')
+        'body': json.dumps({'error': 'Not found'})
     }
