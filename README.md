@@ -81,3 +81,4 @@ Frontend (Dashboard)  <-- AJAX (30s interval) -->  Backend API (Flask)
 - Error handling prevents information leakage
 - No direct user input passed to web scraper (uses predefined market list)
 - Rate limiting consideration through caching
+
