@@ -1,4 +1,4 @@
-from .market_fetcher import get_market_data, get_specific_market_data
+from market_fetcher import get_market_data, get_specific_market_data
 import json
 import time
 
